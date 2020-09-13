@@ -1,0 +1,99 @@
+<aside id="primary-sidebar">
+    <div id="sidebar-inner" class="scrollbar-macosx">
+        <section class="guide-menu fluid">
+            <h5 class="section-heading"><%- page.l.menu %></h5>
+            <ul class="guide-icon-menu">
+                <li>
+                    <a href="/">
+                        <span>
+                            <svg class="mofycon">
+                                <use xlink:href="#icon-home-new"></use>
+                            </svg>
+                        </span><%- page.l.home %>
+                    </a>
+                </li>
+                <li>
+                    <a href="/<%- page.urls.type %>/<%- page.urls.types.serial %>">
+                        <span>
+                            <svg class="mofycon">
+                                <use xlink:href="#icon-tv-new"></use>
+                            </svg>
+                        </span><%- page.l.series %>
+                    </a>
+                </li>
+                <li>
+                    <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>">
+                        <span>
+                            <svg class="mofycon">
+                                <use xlink:href="#icon-film-new"></use>
+                            </svg>
+                        </span><%- page.l.movies %>
+                    </a>
+                </li>
+                <li>
+                    <a href="/<%- page.urls.type %>/<%- page.urls.types.mult %>">
+                        <span>
+                            <svg class="mofycon">
+                                <use xlink:href="#icon-collections-new"></use>
+                            </svg>
+                        </span><%- page.l.cartoons %>
+                    </a>
+                </li>
+                <li>
+                    <a href="/<%- page.urls.type %>/<%- page.urls.types.anime %>">
+                        <span>
+                            <svg class="mofycon">
+                                <use xlink:href="#icon-users-new"></use>
+                            </svg>
+                        </span><%- page.l.anime %>
+                    </a>
+                </li>
+                <li>
+                    <a href="/<%- page.urls.type %>/<%- page.urls.types.tv %>">
+                        <span>
+                            <svg class="mofycon">
+                                <use xlink:href="#icon-calendar-new"></use>
+                            </svg>
+                        </span><%- page.l.tv %>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <section class="guide-menu">
+            <h5 class="section-heading"><%- page.l.genres %></h5>
+            <ul class="trending-thisweek">
+                <% /* Жанры (список в настройках отображения) */ %>
+                <% page.urls.genres.forEach(function(genre) { %>
+                    <li>
+                        <a href="<%- genre.url %>">
+                            <h5 class="truncate" title="<%= genre.title %>"><%- genre.title %></h5>
+                        </a>
+                    </li>
+                <% }); %>
+            </ul>
+        </section>
+        <section class="guide-menu" style="padding: 0">
+            <% /* Реклама слева страницы */ %>
+            <% if (typeof page.adv === 'object' && page.adv.left) { %>
+                <div style="text-align:center;margin:10px auto">
+                    <%- page.adv.left %>
+                </div>
+            <% } %>
+        </section>
+        <% /* Ближайшие премьеры фильмов */ %>
+        <% if (typeof soon === 'object' && soon.length) { %>
+        <section class="guide-menu">
+            <h5 class="section-heading"><%- page.l.soon %></h5>
+            <ul class="trending-thisweek">
+            <% soon.forEach(function (movie) { %>
+                <li>
+                    <a href="<%- movie.url %>">
+                        <h5 class="truncate" title="<%= movie.title %>"><%- movie.title %></h5>
+                    </a>
+                </li>
+            <% }); %>
+            </ul>
+        </section>
+        <% } %>
+    </div>
+</aside>

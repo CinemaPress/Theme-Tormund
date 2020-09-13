@@ -1,0 +1,143 @@
+<div class="container">
+    <% /* Реклама внизу страницы */ %>
+    <% if (typeof page.adv === 'object' && page.adv.bottom) { %>
+        <div style="text-align:center;margin:10px auto 40px auto">
+            <%- page.adv.bottom %>
+        </div>
+    <% } %>
+    <% /* Список фильмов которые недавно смотрели */ %>
+    <div class="recentlyViewedBlock copyright" style="display:none;">
+        <div><%- page.l.watched %>:</div>
+        <div id="recentlyViewed"></div>
+    </div>
+    <div class="ui three column doubling grid">
+        <div class="column">
+            <div class="ui two column doubling grid">
+                <div class="column">
+                    <div class="ui link list">
+                        <a class="item" href="/<%- page.urls.year %>"><%- page.l.allYears %></a>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui link list">
+                        <a class="item" href="/<%- page.urls.genre %>"><%- page.l.allGenres %></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="ui two column doubling grid">
+                <div class="column">
+                    <div class="ui link list">
+                        <a class="item" href="/<%- page.urls.country %>"><%- page.l.allCountries %></a>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui link list">
+                        <a class="item" href="/<%- page.urls.actor %>"><%- page.l.allActors %></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="ui two column doubling grid">
+                <div class="column">
+                    <div class="ui link list">
+                        <a class="item" href="/<%- page.urls.director %>"><%- page.l.allDirectors %></a>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui link list">
+                        <% /* Защищенный вывод email */ %>
+                        <span class="item" id="mylo"></span>
+                        <script>(function (d, i, l, r) {
+                                d.getElementById(i).innerHTML = l + '@' + r;
+                            })(window.document, 'mylo', '<%- page.email.split('@')[0] %>', '<%- page.email.split('@')[1] %>');</script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui grid" style="margin-bottom: 20px">
+        <div class="row">
+            <div class="left floated sixteen wide tablet four wide computer column">
+                <a class="footer-logo" href="/">Logo</a>
+            </div>
+            <% /* Социальные сети */ %>
+            <% if (page.social) { %>
+                <div class="right floated sixteen wide tablet twelve wide computer column">
+                    <ul class="footer-social right floated">
+                        <% if (page.social.facebook) { %>
+                            <li>
+                                <a href="<%- page.social.facebook %>" rel="nofollow">
+                                    <i class="footer-social-facebook"></i>
+                                    <p>
+                                        <span><%- page.l.facebook %></span>
+                                    </p>
+                                </a>
+                            </li>
+                        <% } %>
+                        <% if (page.social.twitter) { %>
+                            <li>
+                                <a href="<%- page.social.twitter %>" rel="nofollow">
+                                    <i class="footer-social-twitter"></i>
+                                    <p>
+                                        <span><%- page.l.twitter %></span>
+                                    </p>
+                                </a>
+                            </li>
+                        <% } %>
+                        <% if (page.social.instagram) { %>
+                            <li>
+                                <a href="<%- page.social.instagram %>" rel="nofollow">
+                                    <i class="footer-social-instagram"></i>
+                                    <p>
+                                        <span><%- page.l.instagram %></span>
+                                    </p>
+                                </a>
+                            </li>
+                        <% } %>
+                        <% if (page.social.vk) { %>
+                            <li>
+                                <a href="<%- page.social.vk %>" rel="nofollow">
+                                    <i class="footer-social-vk"></i>
+                                    <p>
+                                        <span><%- page.l.vk %></span>
+                                    </p>
+                                </a>
+                            </li>
+                        <% } %>
+                        <% if (page.social.telegram) { %>
+                            <li>
+                                <a href="<%- page.social.telegram %>" rel="nofollow">
+                                    <i class="footer-social-telegram"></i>
+                                    <p>
+                                        <span><%- page.l.telegram %></span>
+                                    </p>
+                                </a>
+                            </li>
+                        <% } %>
+                        <% if (page.social.youtube) { %>
+                            <li>
+                                <a href="<%- page.social.youtube %>" rel="nofollow">
+                                    <i class="footer-social-youtube"></i>
+                                    <p>
+                                        <span><%- page.l.youtube %></span>
+                                    </p>
+                                </a>
+                            </li>
+                        <% } %>
+                    </ul>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</div>
+<script src="/themes/tormund/public/js/jquery-3.3.1.min.js?v=<%- page.ver %>"></script>
+<script src="/themes/tormund/public/js/jquery-ui.min.js?v=<%- page.ver %>"></script>
+<script src="/themes/tormund/public/js/semantic.min.js?v=<%- page.ver %>"></script>
+<script src="/themes/tormund/public/js/navigo.min.js?v=<%- page.ver %>"></script>
+<script src="/themes/tormund/public/js/jquery.scrollbar.min.js?v=<%- page.ver %>"></script>
+<script src="/themes/tormund/public/js/lazyload.min.js?v=<%- page.ver %>"></script>
+<script src="/themes/tormund/public/js/main.min.js?v=<%- page.ver %>"></script>
+<%- page.codes.footer %>

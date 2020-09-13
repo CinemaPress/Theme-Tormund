@@ -1,0 +1,49 @@
+<button class="mobile-menu-trigger">
+    <span></span>
+</button>
+<div id="logo">
+    <a href="/"><%- page.l.home %></a>
+</div>
+<div id="header-middle">
+    <div id="search">
+        <div>
+            <span class="deleteicon"></span>
+            <label for="tvSearch">
+                <input type="search" name="search" class="form-control deletable" autocomplete="off" id="tvSearch"
+                       placeholder="<%- page.l.search %>" onkeydown="cinemaSearch(this)">
+                <script>
+                    function cinemaSearch(e) {
+                        if (event.key === 'Enter') {
+                            window.location.href = '/<%- page.urls.search %>?q=' + encodeURIComponent(e.value);
+                        }
+                    }
+                </script>
+            </label>
+            <button type="button" aria-label="<%- page.l.search %>"
+                    onclick="window.location.href='/<%- page.urls.search %>?q='+encodeURIComponent(document.querySelector('#tvSearch').value)">
+                <svg class="mofycon">
+                    <use xlink:href="#icon-search"></use>
+                </svg>
+            </button>
+        </div>
+        <div id="search-results" style="display: none;">
+            <div id="search-response"></div>
+        </div>
+    </div>
+    <div id="user">
+        <div class="left floated author">
+            <% /* Кнопка продолжения просмотра */ %>
+            <span style="display: inline-block">
+                <span class="continueViewingBlock" style="display:none">
+                    <a href="javascript:void(0)" id="continueViewing" class="ui button secondary"><%- page.l.continue %>
+                        ?</a>
+                </span>
+            </span>
+            <% /* Кнопка случайного фильма в меню */ %>
+            <span class="randomMovieMenu" style="display:none">
+                <a href="/?random=<%- Math.random() %>"
+                   class="cinemapress-random-menu ui button secondary hidden-xs"><%- page.l.lucky %></a>
+            </span>
+        </div>
+    </div>
+</div>

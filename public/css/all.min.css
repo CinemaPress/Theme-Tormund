@@ -1,0 +1,1031 @@
+.rklma {
+    background: #333;
+    color: #ccc;
+    text-align: center;
+    padding: 30px 0;
+    width: 90%;
+    border: 3px dashed #ccc;
+    border-radius: 5px;
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+    margin: 10px auto;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.cinemapress-content {
+    text-align: justify;
+    padding: 10px;
+    color: #fff
+}
+
+.cinemapress-content-image {
+    height: 150px;
+    border-radius: 5px;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+@media (max-width:600px) {
+    .cinemapress-content-image {
+        display: block;
+        float: none;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+.cinemapress-content-description {
+    min-height: 127px;
+}
+
+.cinemapress-content-publish {
+    margin: 5px 0;
+    text-align: right;
+}
+
+#cinemapress-cdn {
+    width: 100%;
+    height: 370px;
+}
+
+#cinemapress-player {
+    width: 100%;
+    min-height: 370px;
+    overflow: hidden;
+    position: relative;
+    background: transparent;
+    display: block;
+}
+
+.cinemapress-news {
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    border-radius: 5px;
+}
+
+.cinemapress-news .cinemapress-news-title {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    color: #fff;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, .3);
+    font-weight: bold;
+    margin: 0;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.cinemapress-news:hover {
+    opacity: .8
+}
+
+.cinemapress-poster {
+    position: relative;
+    line-height: normal
+}
+
+.cinemapress-quality {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 5px;
+    color: #fff;
+    background: #000;
+    border-radius: 3px;
+    opacity: .7;
+    margin: 10px 10px 0 10px;
+    font-size: 13px
+}
+
+.cinemapress-translate {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 5px;
+    color: #fff;
+    background: #000;
+    border-radius: 3px;
+    opacity: .7;
+    margin: 0 10px 10px 10px;
+    font-size: 13px
+}
+
+.cinemapress-svg-quality {
+    background: url("data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDI5MC4yNjIgMjkwLjI2MiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjkwLjI2MiAyOTAuMjYyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCI+CjxwYXRoIGlkPSJfeDM0XzktSERfaWNvbiIgZD0iTTI3OC43NDMsMzMuNjEySDExLjUxOUM1LjE1NywzMy42MTIsMCwzOC43NywwLDQ1LjEzMXYyMDBjMCw2LjM2MSw1LjE1NywxMS41MTksMTEuNTE5LDExLjUxOWgyNjcuMjI1ICBjNi4zNjEsMCwxMS41MTktNS4xNTcsMTEuNTE5LTExLjUxOXYtMjAwQzI5MC4yNjIsMzguNzcsMjg1LjEwNCwzMy42MTIsMjc4Ljc0MywzMy42MTJ6IE0xMDQuMDYzLDE5MC4xMzFsOS45ODktMzQuOTczSDc2Ljc3MSAgbC05Ljk5MywzNC45NzNINDMuODk2bDI1LjcwOS05MGgyMi44ODhMODEuOTE0LDEzNy4xNmgzNy4yNzlsMTAuNTc5LTM3LjAyOWgyMi44OWwtMjUuNzE1LDkwSDEwNC4wNjN6IE0yNDQuMzMsMTQ1LjEzMSAgYy03LjYwNCwyNi42MTMtMzIuNjU4LDQ1LTYxLjU4NSw0NWgtMzcuNzk2bDE2Ljk4Ni01OS40NjFoMjIuODgybC0xMS43NjgsNDEuMTk5aDE2LjMyN2MxNC4wMTQsMCwyNy4xMjgtMTAuNzk3LDMxLjY0NC0yNi42MDcgIGM0LjU1NS0xNS45NDUtMi44NjUtMjYuODcxLTE3LjM5My0yNi44NzFoLTM4LjE4OGw1LjIxNy0xOC4yNmgzOC43QzIzNy42NDEsMTAwLjEzMSwyNTEuOTY1LDExOC4zOTEsMjQ0LjMzLDE0NS4xMzF6IiBmaWxsPSIjRkZGRkZGIi8+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=") center no-repeat;
+    display: inline-block;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    height: 10px !important;
+    width: 15px !important;
+    min-height: 10px !important;
+    min-width: 10px !important;
+}
+
+.cinemapress-svg-translate {
+    background: url("data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDMzNi4xOTIgMzM2LjE5MiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMzM2LjE5MiAzMzYuMTkyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCI+CjxnIGlkPSJfeDMwXzctTG91ZF9zcGVha2VyIj4KCTxwYXRoIGQ9Ik0wLjQ3NiwyODAuNjM2Yy0wLjc1NiwxLjY5MS0wLjYwNCwzLjY0OCwwLjQwNCw1LjIwMWMxLjAwOCwxLjU1NSwyLjczMiwyLjQ5LDQuNTg0LDIuNDloNjIuNzg5ICAgYzIuMTU0LDAsNC4xMDktMS4yNjYsNC45ODgtMy4yMzRsMzAuMDA0LTY0Ljk3OUgyOC40OTFMMC40NzYsMjgwLjYzNnoiIGZpbGw9IiNGRkZGRkYiLz4KCTxwYXRoIGQ9Ik0yOTMuNTg5LDQ4LjkxM2MtMC44ODUtMC42ODctMS45NjUtMS4wNDgtMy4wNjMtMS4wNDhjLTAuNDE2LDAtMC44MzYsMC4wNTItMS4yNDgsMC4xNTggICBjLTAuNDgyLDAuMTI0LTQ4LjgzNiwxMi42NzctOTYuNTUzLDMyLjU2M2MtMjkuNjczLDEyLjM2Ny01Mi43MTEsMjQuODI2LTY5LjA3OCwzNy4zMDdIMjMuNDIxYy0zLjAxOCwwLTUuNDY0LDIuNDQ2LTUuNDY0LDUuNDYzICAgdjc5LjgzNGMwLDMuMDE4LDIuNDQ2LDUuNDYzLDUuNDY0LDUuNDYzSDEyMy42NWMxNi4zNjYsMTIuNDgsMzkuNDA0LDI0LjkzOSw2OS4wNzUsMzcuMzA0ICAgYzQ3LjcxNywxOS44ODcsOTYuMDcsMzIuNDM5LDk2LjU1MywzMi41NjRjMC40MTIsMC4xMDUsMC44MzIsMC4xNTgsMS4yNDgsMC4xNThjMS4wOTgsMCwyLjE3OC0wLjM2MSwzLjA2My0xLjA0OSAgIGMxLjIyMy0wLjk0NywxLjkzOC0yLjQwNiwxLjkzOC0zLjk1MVY1Mi44NjVDMjk1LjUyNiw1MS4zMTksMjk0LjgxMiw0OS44NTksMjkzLjU4OSw0OC45MTN6IiBmaWxsPSIjRkZGRkZGIi8+Cgk8cGF0aCBkPSJNMzA5LjE1MSwxMTguNTM1djk4LjY2YzE2LjI1Ni0xMC40LDI3LjA0MS0yOC42LDI3LjA0MS00OS4zM0MzMzYuMTkyLDE0Ny4xMzQsMzI1LjQwNywxMjguOTM1LDMwOS4xNTEsMTE4LjUzNXoiIGZpbGw9IiNGRkZGRkYiLz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K") center no-repeat;
+    display: inline-block;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    height: 10px !important;
+    width: 15px !important;
+    min-height: 10px !important;
+    min-width: 10px !important;
+}
+
+.cinemapress-recent {
+    background: #333;
+    color: #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 12px;
+    border: 2px solid #334;
+    margin: 3px auto;
+    clear: both
+}
+
+.cinemapress-recent:hover {
+    background: #334
+}
+
+.cinemapress-recent a {
+    color: #bbb;
+    text-decoration: none;
+    font-weight: 400
+}
+
+.cinemapress-recent a:hover {
+    color: #fff
+}
+
+.cinemapress-recent-head {
+    height: 49px
+}
+
+.cinemapress-recent-head-avatar {
+    float: left;
+    border: 5px solid #1e2029;
+    margin: 0 5px 0 0;
+    border-radius: 100% 100% 0 0;
+    background: #1e2029
+}
+
+.cinemapress-recent-head-avatar img {
+    width: 40px;
+    border-radius: 100%;
+    border: 0
+}
+
+.cinemapress-recent-comment {
+    clear: both;
+    text-align: justify;
+    background: #1e2029;
+    color: #ccc;
+    padding: 5px;
+    border-radius: 0 5px 5px
+}
+
+@keyframes animationFrames {
+    100% {
+        transform: translate(0px, 0px) rotate(360deg)
+    }
+}
+
+.randomMovieCategory, .randomMovieMenu, .randomMovieIndex, .randomMovieRelated {
+    display: none
+}
+
+.cinemapress-random-category {
+    position: relative;
+    text-align: left;
+    background: #111216;
+    border-radius: 5px;
+    margin: 15px 10px 15px 70px;
+    border: 1px solid #1e2029;
+    font-size: 20px;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    height: 28px;
+    clear: both
+}
+
+.cinemapress-random-category img {
+    animation: animationFrames 4s ease 0s 1 normal forwards running;
+    position: absolute;
+    width: 52px;
+    height: 52px;
+    left: -60px;
+    top: -10px
+}
+
+.cinemapress-random-category span {
+    margin: 0 10px 0;
+    float: left;
+    line-height: 1.25;
+}
+
+.cinemapress-random-category small {
+    font-size: 10px;
+    color: #ccc;
+    font-weight: 400;
+    float: right;
+    margin: 5px 5px
+}
+
+.cinemapress-random-category:hover {
+    opacity: .7
+}
+
+.cinemapress-random-index, .cinemapress-random-related {
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    float: right;
+    margin-right: 5px;
+}
+
+.cinemapress-random-index:hover, .cinemapress-random-related:hover {
+    opacity: .8;
+    animation: animationFrames .5s ease 0s 1 normal forwards running
+}
+
+.cinemapress-random-index img {
+    width: 28px;
+    height: 28px
+}
+
+.cinemapress-random-related img {
+    width: 28px;
+    height: 28px
+}
+
+.cinemapress-categories {
+    -webkit-filter: blur(2px);
+    -moz-filter: blur(2px);
+    -o-filter: blur(2px);
+    -ms-filter: blur(2px);
+    filter: blur(2px);
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    border-radius: 5px
+}
+
+.cinemapress-categories-title {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    color: #fff;
+    padding: 90px 0;
+    background-color: rgba(0, 0, 0, .5);
+    font-weight: 700;
+    margin: 0;
+    border-radius: 5px;
+    text-align: center;
+    height: 200px;
+    vertical-align: middle;
+    text-decoration: none
+}
+
+.cinemapress-categories-title:hover {
+    opacity: .8;
+    cursor: pointer;
+    color: #fff
+}
+
+.cinemapress-sort a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 12px;
+    background: #1a1a1a;
+    border-radius: 3px;
+    padding: 3px;
+    margin: 1px;
+    display: inline-block;
+}
+
+.cinemapress-sort .cinemapress-sort-active {
+    color: #ccc;
+    background: #555
+}
+
+.cinemapress-sort a:hover {
+    color: #fff;
+    background: #444
+}
+
+.cinemapress-autocomplete {
+    display: none;
+    position: absolute
+}
+
+.cinemapress-autocomplete ul {
+    border-radius: 5px;
+    list-style-type: none;
+    margin: 5px;
+    padding: 0;
+    max-height: 250px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    min-width: 200px;
+    float: none !important
+}
+
+.cinemapress-autocomplete ul li {
+    background: #2b2b2b;
+    line-height: 1;
+    border-radius: 5px;
+    float: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    display: block !important
+}
+
+.cinemapress-autocomplete ul li:hover {
+    background: #1d1d1d;
+    cursor: pointer
+}
+
+.cinemapress-autocomplete ul li img {
+    vertical-align: middle;
+    border-radius: 5px 0 0 5px;
+    width: 30px;
+    height: 50px;
+    display: inline-block
+}
+
+.cinemapress-autocomplete ul li p {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0 0 5px;
+    padding: 0;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 50px;
+    line-height: 1.35;
+    max-width: 170px
+}
+
+.cinemapress-autocomplete div {
+    background: #2b2b2b;
+    border-radius: 5px;
+    margin: 5px;
+    line-height: 2;
+    text-align: center;
+    cursor: pointer;
+    min-width: 200px
+}
+
+.cinemapress-autocomplete div:hover {
+    background: #1d1d1d
+}
+
+#disqus_thread {
+    position: relative
+}
+
+#disqus_thread:after {
+    content: "";
+    display: block;
+    height: 65px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background: #2b2b2b
+}
+
+.grecaptcha-badge {
+    visibility: hidden
+}
+
+textarea {
+    font-family: inherit;
+    font-size: 14px;
+    border: none;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0
+}
+
+textarea::-webkit-input-placeholder, textarea:-moz-placeholder, textarea::-moz-placeholder, textarea:-ms-input-placeholder, textarea::placeholder {
+    color: #fff;
+    margin: 0
+}
+
+body::after {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    z-index: -1;
+    content: url('../images/dice.svg') url('../images/like-hover.svg') url('../images/dislike-hover.svg') url('../images/reply-hover.svg') url('../images/question.svg')
+}
+
+#cinemapress-comments {
+    position: relative;
+    padding-top: 10px;
+    margin: 10px auto;
+    clear: both;
+    line-height: 1.3
+}
+
+.cinemapress-comment {
+    color: #fff;
+    text-align: justify;
+    padding: 5px 0;
+    border-radius: 5px;
+    font-size: 12px;
+    margin: 3px auto
+}
+
+.cinemapress-comment a {
+    color: #bbb;
+    text-decoration: none;
+    font-weight: 400
+}
+
+.cinemapress-comment a:hover {
+    color: #fff
+}
+
+.cinemapress-comment-h3 {
+    font-family: inherit;
+    color: #fff;
+    margin: 0 0 20px;
+    font-weight: 600;
+    width: 100%;
+    display: inline-block;
+    font-size: 24px;
+    line-height: 1
+}
+
+.cinemapress-comment-bg-color {
+    background: #1e2029
+}
+
+.cinemapress-comment-bg {
+    font-size: 12px;
+    color: #fff;
+    background: #1e2029;
+    text-align: justify;
+    border-radius: 5px
+}
+
+.cinemapress-comment-head {
+    height: 49px
+}
+
+.cinemapress-comment-head-avatar {
+    float: left;
+    border: 5px solid #1e2029;
+    margin: 0 5px 0 0;
+    border-radius: 100% 100% 0 0;
+    background: #1e2029;
+    line-height: normal
+}
+
+.cinemapress-comment-head-avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    border: 0
+}
+
+.cinemapress-comment-head-meta > div {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    line-height: 1;
+    margin-bottom: 7px
+}
+
+.cinemapress-comment-user {
+    text-align: right
+}
+
+.cinemapress-comment-user-name {
+    font-weight: 700
+}
+
+.cinemapress-comment-user-name, .cinemapress-comment-user-said, .cinemapress-comment-user-date, .cinemapress-comment-user-link {
+    color: #666;
+    font-size: 10px;
+    display: inline-block;
+    margin-right: 3px
+}
+
+.cinemapress-comment-head-meta-title {
+    padding: 5px 0;
+    text-align: center
+}
+
+.cinemapress-comment-radius {
+    border-radius: 0 5px 5px 5px;
+    padding: 5px
+}
+
+.cinemapress-comment-count {
+    padding: 5px 10px;
+    font-size: 20px;
+    border-radius: 0 5px
+}
+
+.cinemapress-comment-form {
+    position: relative
+}
+
+.cinemapress-comment-form-bg {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border-radius: 5px;
+    opacity: .1;
+    margin: 10px 10px 10px 0;
+    text-align: center;
+    height: 90px;
+    background-image: url(../images/textarea.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100px
+}
+
+.cinemapress-comment-textarea {
+    width: 100%;
+    height: 200px;
+    border: 0 !important;
+    border-radius: 5px;
+    padding: 5px
+}
+
+.cinemapress-comment-button-bg {
+    position: absolute;
+    right: 0;
+    bottom: 3px;
+    border-radius: 5px;
+    opacity: .8;
+    margin: 0;
+    text-align: center;
+    width: 100px;
+    line-height: 1;
+    padding: 0 2px
+}
+
+.cinemapress-comment-button-bg.error-on {
+    margin: 0 10px 10px 0;
+    height: 42px;
+    background: #a6003b;
+    color: #fff;
+    opacity: .8
+}
+
+.cinemapress-comment-button-bg.error-off {
+    margin: 0 10px 10px 0;
+    height: 42px;
+    background: #000;
+    color: #fff;
+    opacity: .5
+}
+
+.hover-on:hover {
+    opacity: 1 !important;
+    cursor: pointer
+}
+
+.hover-off:hover {
+    opacity: 0 !important;
+    cursor: default
+}
+
+.cinemapress-comment-button-text {
+    line-height: 1;
+    display: table-cell;
+    vertical-align: middle;
+    height: 42px;
+    width: 100px;
+    font-size: 12px
+}
+
+.cinemapress-comment-button-text.error-on {
+    margin: 3px
+}
+
+.cinemapress-comment-button-text.error-off {
+    margin: 16px 0
+}
+
+.cinemapress-comment-head-meta-vote {
+    text-align: right
+}
+
+.cinemapress-comment-like {
+    border: 0;
+    padding: 2px 0 2px 5px;
+    cursor: pointer
+}
+
+.cinemapress-comment-dislike {
+    border: 0;
+    padding: 2px 5px 2px 0;
+    cursor: pointer
+}
+
+.cinemapress-comment-reply {
+    border: 0;
+    padding: 2px 5px;
+    cursor: pointer
+}
+
+.cinemapress-comment-like-number {
+    line-height: 1;
+    color: #00815f !important;
+    padding: 0 5px;
+    font-size: 18px
+}
+
+.cinemapress-comment-like:hover .cinemapress-comment-like-number {
+    color: #00a67b !important
+}
+
+.cinemapress-comment-dislike-number {
+    line-height: 1;
+    color: #83002e !important;
+    padding: 0 5px;
+    font-size: 18px
+}
+
+.cinemapress-comment-dislike:hover .cinemapress-comment-dislike-number {
+    color: #a6003b !important
+}
+
+.cinemapress-comment-dislike-icon {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    background-size: cover;
+    background-image: url(../images/dislike.svg)
+}
+
+.cinemapress-comment-dislike:hover .cinemapress-comment-dislike-icon {
+    background-image: url(../images/dislike-hover.svg)
+}
+
+.cinemapress-comment-like-icon {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    background-size: cover;
+    background-image: url(../images/like.svg)
+}
+
+.cinemapress-comment-like:hover .cinemapress-comment-like-icon {
+    background-image: url(../images/like-hover.svg)
+}
+
+.cinemapress-comment-reply-icon {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    background-size: cover;
+    background-image: url(../images/reply.svg)
+}
+
+.cinemapress-comment-reply:hover .cinemapress-comment-reply-icon {
+    background-image: url(../images/reply-hover.svg)
+}
+
+.cinemapress-comment-admin {
+    margin: 0 0 0 50px;
+    min-height: 40px;
+    position: relative;
+    padding: 0 0 0 40px;
+    background: none
+}
+
+.cinemapress-comment-admin-bg {
+    background-image: url(../images/admin.svg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 100%
+}
+
+.cinemapress-comment-admin-text {
+    border-radius: 5px;
+    margin: 5px 0 0;
+    min-height: 30px;
+    border: 2px #eac6bb dotted;
+    border-top: 2px #ed5564 dotted;
+    border-bottom: 2px #a0d468 dotted;
+    padding: 5px
+}
+
+.cinemapress-comment-textarea-div {
+    position: relative
+}
+
+.cinemapress-comment-question {
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-align: center;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    padding: 20px 10px;
+    margin: 0;
+    border: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.cinemapress-comment-question-bg {
+    background-image: url(../images/question.svg);
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: .1;
+    width: 100%;
+    height: 100%;
+    z-index: -1
+}
+
+.cinemapress-comment-question-bg-poster {
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: .1;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    border-radius: 5px
+}
+
+.cinemapress-comment-question-text {
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+    z-index: 0
+}
+
+.cinemapress-comment-question-answer {
+    text-align: center;
+    margin: 0 auto;
+    padding: 5px;
+    z-index: 0
+}
+
+.cinemapress-comment-question-answer-yes {
+    background: #00815f;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin: 0;
+    color: #fff;
+    border-bottom: 2px #00a67b solid;
+    width: 40px;
+    display: inline-block
+}
+
+.cinemapress-comment-question-answer-not {
+    background: #83002e;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin: 0;
+    color: #fff;
+    border-bottom: 2px #a6003b solid;
+    width: 40px;
+    display: inline-block
+}
+
+.cinemapress-comment-question div span:hover {
+    border: 0;
+    cursor: pointer;
+    opacity: .9
+}
+
+.cinemapress-comment-star {
+    text-align: center;
+    height: 50px;
+    position: absolute;
+    right: 0;
+    top: 0
+}
+
+.cinemapress-comment-star-up.selected, .cinemapress-comment-star-award.selected, .cinemapress-comment-star-down.selected {
+    width: 50px;
+    height: 50px;
+    opacity: 1;
+    cursor: default
+}
+
+.cinemapress-comment-star-up:hover.selected, .cinemapress-comment-star-award:hover.selected, .cinemapress-comment-star-down:hover.selected {
+    opacity: 1;
+    cursor: default
+}
+
+.cinemapress-comment-star-up {
+    background-image: url(../images/vote2.svg);
+    background-size: contain;
+    background-repeat: no-repeat
+}
+
+.cinemapress-comment-star-award {
+    background-image: url(../images/vote3.svg);
+    background-size: contain;
+    background-repeat: no-repeat
+}
+
+.cinemapress-comment-star-down {
+    background-image: url(../images/vote1.svg);
+    background-size: contain;
+    background-repeat: no-repeat
+}
+
+.cinemapress-comment-star-up {
+    opacity: .5;
+    width: 30px;
+    height: 30px;
+    display: inline-block
+}
+
+.cinemapress-comment-star-award {
+    opacity: .5;
+    width: 50px;
+    height: 50px;
+    display: inline-block
+}
+
+.cinemapress-comment-star-down {
+    opacity: .5;
+    width: 30px;
+    height: 30px;
+    display: inline-block
+}
+
+.cinemapress-comment-star-up:hover {
+    opacity: .8;
+    cursor: pointer
+}
+
+.cinemapress-comment-star-award:hover {
+    opacity: .8;
+    cursor: pointer
+}
+
+.cinemapress-comment-star-down:hover {
+    opacity: .8;
+    cursor: pointer
+}
+
+.cinemapress-comment-head-star div {
+    float: left;
+    margin: 0 5px 0 0;
+    width: 40px;
+    height: 40px;
+    opacity: .5 !important;
+    cursor: default !important
+}
+
+.cinemapress-comment-form-bb {
+    height: 25px
+}
+
+.cinemapress-comment-form-bb span {
+    border-bottom: 2px solid;
+    padding: 2px 5px 1px;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: .5
+}
+
+.cinemapress-comment-form-bb span:hover {
+    opacity: 1
+}
+
+.cinemapress-comment-spoiler, .cinemapress-comment-search {
+    padding: 2px 5px 1px;
+    border-radius: 5px;
+    cursor: pointer
+}
+
+.cinemapress-comment-form-bb-b, .cinemapress-comment-b {
+    font-weight: 700
+}
+
+.cinemapress-comment-form-bb-i, .cinemapress-comment-i {
+    font-style: italic
+}
+
+span.cinemapress-comment-form-bb-spoiler, .cinemapress-comment-spoiler {
+    border-bottom: 2px #83002e solid
+}
+
+.cinemapress-comment-spoiler:hover {
+    border-bottom: 2px #a6003b solid
+}
+
+span.cinemapress-comment-form-bb-search, .cinemapress-comment-search {
+    border-bottom: 2px #008083 solid
+}
+
+.cinemapress-comment-search:hover {
+    border-bottom: 2px #00a5a8 solid
+}
+
+.cinemapress-comment-form-anonymous {
+    float: right;
+    border: 0 !important;
+    width: 130px;
+    height: 20px;
+    border-radius: 5px;
+    padding: 0 3px;
+    font-size: 12px
+}
+
+.cinemapress-comment-user span {
+    opacity: .9;
+    cursor: pointer
+}
+
+.cinemapress-comment-arrow {
+    text-align: center
+}
+
+.cinemapress-prev-comments {
+    background: url(../images/left-arrow.svg);
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    opacity: .6;
+    text-align: center;
+    border-radius: 5px;
+    margin: 0 5px
+}
+
+.cinemapress-next-comments {
+    background: url(../images/right-arrow.svg);
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    opacity: .6;
+    text-align: center;
+    border-radius: 5px;
+    margin: 0 5px
+}
+
+.cinemapress-prev-comments:hover, .cinemapress-next-comments:hover {
+    opacity: 1;
+    cursor: pointer
+}
+
+@media (max-width: 420px) {
+    .cinemapress-comment-form-bb-b, .cinemapress-comment-form-bb-i {
+        display: none
+    }
+}
+
+.recentlyViewedBlock img:hover{
+    opacity:.6
+}

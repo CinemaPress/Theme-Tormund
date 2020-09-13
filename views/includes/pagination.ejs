@@ -1,0 +1,36 @@
+<% if (typeof page.pagination === 'object') { %>
+
+    <div style="width: 100%; text-align: center">
+        <div class="ui pagination menu">
+
+            <% /* Первая страница */ %>
+            <% if (page.pagination.first) { %>
+                <a href="<%- page.pagination.first.link %>" class="item"><%- page.pagination.first.number %></a>
+            <% } %>
+
+            <% /* Номера страниц до текущей */ %>
+            <% if (page.pagination.prev.length) { %>
+                <% page.pagination.prev.forEach(function (prev) { %>
+                    <a href="<%- prev.link %>" class="item"><%- prev.number %></a>
+                <% }); %>
+            <% } %>
+
+            <% /* Текуща страница */ %>
+            <a href="javascript:void(0)" class="active item"><%- page.pagination.current %></a>
+
+            <% /* Номера страниц после текущей */ %>
+            <% if (page.pagination.next.length) { %>
+                <% page.pagination.next.forEach(function (next) { %>
+                    <a href="<%- next.link %>" class="item"><%- next.number %></a>
+                <% }); %>
+            <% } %>
+
+            <% /* Последняя страница */ %>
+            <% if (page.pagination.last) { %>
+                <a href="<%- page.pagination.last.link %>" class="item"><%- page.pagination.last.number %></a>
+            <% } %>
+
+        </div>
+    </div>
+
+<% } %>
