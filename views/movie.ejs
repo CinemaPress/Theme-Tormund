@@ -62,40 +62,25 @@
                             <% } %>
                         </div>
                         <div class="ui grid">
-                            <div class="left floated sixteen wide tablet eight wide computer column">
+                            <div class="left floated <% if (movie.tags_url) { %>sixteen<% } else { %>eleven<% } %> wide tablet computer column">
                                 <a href="<%- movie.url %>">
                                     <h1 class="page-title"><%- page.h1 %></h1>
                                 </a>
                             </div>
+                            <% if (movie.tags_url) { %>
+                            <div class="left floated eleven wide tablet computer column">
+                                <div class="cat-tags">
+                                    <%- movie.tags_url %>
+                                </div>
+                            </div>
+                            <% } %>
                             <% /* Кнопка «Досмотреть позже» */ %>
-                            <div class="right aligned floated sixteen wide tablet eight wide computer column watchLaterBlock"
-                                 style="display:none;">
+                            <div class="right aligned floated five wide tablet computer column watchLaterBlock" style="display:none;">
                                 <div class="button-group">
-                                    <button class="ui secondary button fnc_addFollow"
-                                            id="watchLater"><%- page.l.later %></button>
+                                    <button class="ui secondary button fnc_addFollow" id="watchLater"><%- page.l.later %></button>
                                 </div>
                             </div>
                         </div>
-                        <br><br>
-                        <% /* Реклама над плеером */ %>
-                        <% if (typeof page.adv === 'object' && page.adv.over) { %>
-                            <div style="text-align:center;margin:10px auto;">
-                                <%- page.adv.over %>
-                            </div>
-                        <% } %>
-                        <% /* Плеер */ %>
-                        <div id="cinemapress-player">
-                            <% if (page.player) { %>
-                                <%- page.player %>
-                            <% } %>
-                        </div>
-                        <% /* Реклама под плеером */ %>
-                        <% if (typeof page.adv === 'object' && page.adv.under) { %>
-                            <div style="text-align:center;margin:10px auto;">
-                                <%- page.adv.under %>
-                            </div>
-                        <% } %>
-                        <br>
                         <div id="series-tabs" class="ui pointing secondary menu">
                             <% /* Ссылка на фильм */ %>
                             <a href="<%- movie.url %>" class="item active"><%- page.l.information %></a>
@@ -120,11 +105,25 @@
                                    class="item"><%- page.l.download %></a>
                             <% } %>
                         </div>
-                        <% if (movie.tags_url) { %>
-                            <div class="cat-tags">
-                                <%- movie.tags_url %>
+                        <% /* Реклама над плеером */ %>
+                        <% if (typeof page.adv === 'object' && page.adv.over) { %>
+                            <div style="text-align:center;margin:10px auto;">
+                                <%- page.adv.over %>
                             </div>
                         <% } %>
+                        <% /* Плеер */ %>
+                        <div id="cinemapress-player">
+                            <% if (page.player) { %>
+                                <%- page.player %>
+                            <% } %>
+                        </div>
+                        <% /* Реклама под плеером */ %>
+                        <% if (typeof page.adv === 'object' && page.adv.under) { %>
+                            <div style="text-align:center;margin:10px auto;">
+                                <%- page.adv.under %>
+                            </div>
+                        <% } %>
+                        <br>
                         <div class="ui tab tab-segment active">
                             <div class="ui items">
                                 <div class="item" id="series-profile-wrapper">
@@ -139,85 +138,88 @@
                                                     <% /* Описание фильма */ %>
                                                     <%- movie.description %>
                                                 </p>
-                                            </div>
-                                            <div class="ui list">
-                                                <% if (movie.countries) { %>
-                                                    <div class="item">
+                                                <div class="ui list">
+                                                    <% if (movie.countries) { %>
+                                                        <div class="item">
                                                         <span class="label"><%- page.l.countries %>:
-                                                        </span> <%- movie.countries %>
-                                                    </div>
-                                                <% } %>
-                                                <% if (movie.genres) { %>
-                                                    <div class="item">
+                                                        </span> <%- movie.countries_url %>
+                                                        </div>
+                                                    <% } %>
+                                                    <% if (movie.genres) { %>
+                                                        <div class="item">
                                                         <span class="label"><%- page.l.genres %>:
-                                                        </span> <%- movie.genres %>
-                                                    </div>
-                                                <% } %>
-                                                <% if (movie.directors) { %>
-                                                    <div class="item">
+                                                        </span> <%- movie.genres_url %>
+                                                        </div>
+                                                    <% } %>
+                                                    <% if (movie.directors) { %>
+                                                        <div class="item">
                                                         <span class="label"><%- page.l.directors %>:
-                                                        </span> <%- movie.directors %>
-                                                    </div>
-                                                <% } %>
-                                                <% if (movie.actors) { %>
-                                                    <div class="item">
+                                                        </span> <%- movie.directors_url %>
+                                                        </div>
+                                                    <% } %>
+                                                    <% if (movie.actors) { %>
+                                                        <div class="item">
                                                         <span class="label"><%- page.l.actors %>:
-                                                        </span> <%- movie.actors %>
-                                                    </div>
-                                                <% } %>
-                                            </div>
-                                            <% /* Список серий сериала */ %>
-                                            <div class="episodesListBlock" style="display:none;margin:10px auto;">
-                                                <div id="episodesList" data-id="<%- movie.kp_id %>"></div>
-                                            </div>
-                                            <div class="media-meta">
-                                                <table class="ui unstackable single line celled table">
-                                                    <tbody>
-                                                    <tr>
-                                                        <% /* Качество */ %>
-                                                        <% if (movie.quality) { %>
-                                                            <td>
-                                                                <div><%- page.l.quality %></div>
-                                                                <div><%- movie.quality %></div>
-                                                            </td>
-                                                        <% } %>
-                                                        <% /* Перевод */ %>
-                                                        <% if (movie.translate) { %>
-                                                            <td>
-                                                                <div><%- page.l.translate %></div>
-                                                                <div><%- movie.translate %></div>
-                                                            </td>
-                                                        <% } %>
-                                                        <% /* Общий рейтинг (1-100) и число голосов */ %>
-                                                        <% if (movie.vote) { %>
-                                                            <td>
-                                                                <div style="color: #42e4d0"><%- page.l.rating %></div>
-                                                                <div><strong><%- movie.rating / 10 %></strong>
-                                                                    <small>(<%- movie.vote %> <%- page.l.votes %>
-                                                                        )</small></div>
-                                                            </td>
-                                                        <% } %>
-                                                        <% /* IMDb рейтинг (1-100) и число голосов */ %>
-                                                        <% if (movie.imdb_vote) { %>
-                                                            <td>
-                                                                <div style="color: #e48e34"><%- page.l.imdb %></div>
-                                                                <div><strong><%- movie.imdb_rating / 10 %></strong>
-                                                                    <small>(<%- movie.imdb_vote %> <%- page.l.votes %>
-                                                                        )</small></div>
-                                                            </td>
-                                                        <% } %>
-                                                        <% /* КиноПоиск рейтинг (1-100) и число голосов */ %>
-                                                        <% if (movie.kp_vote) { %>
-                                                            <td>
-                                                                <div style="color: #e4ce2e"><%- page.l.kp %></div>
-                                                                <div><strong><%- movie.kp_rating / 10 %></strong>
-                                                                    <small>(<%- movie.kp_vote %> <%- page.l.votes %>
-                                                                        )</small></div>
-                                                            </td>
-                                                        <% } %>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
+                                                        </span> <%- movie.actors_url %>
+                                                        </div>
+                                                    <% } %>
+                                                </div>
+                                                <% /* Список серий сериала */ %>
+                                                <div class="episodesListBlock" style="display:none;margin:10px auto;">
+                                                    <div id="episodesList" data-id="<%- movie.kp_id %>"></div>
+                                                </div>
+                                                <div class="media-meta">
+                                                    <table class="ui unstackable single line celled table">
+                                                        <tbody>
+                                                        <tr>
+                                                            <% /* Качество */ %>
+                                                            <% if (movie.quality) { %>
+                                                                <td>
+                                                                    <div><%- page.l.quality %></div>
+                                                                    <div><%- movie.quality %></div>
+                                                                </td>
+                                                            <% } %>
+                                                            <% /* Перевод */ %>
+                                                            <% if (movie.translate) { %>
+                                                                <td>
+                                                                    <div><%- page.l.translate %></div>
+                                                                    <div><%- movie.translate %></div>
+                                                                </td>
+                                                            <% } %>
+                                                            <% /* Общий рейтинг (1-100) и число голосов */ %>
+                                                            <% if (movie.vote) { %>
+                                                                <td>
+                                                                    <div style="color: #4281e4"><%- page.l.rating %></div>
+                                                                    <div>
+                                                                        <strong><%- movie.rating / 10 %></strong>
+                                                                        <small style="color:#666">(<%- movie.vote %> <%- page.l.votes %>)</small>
+                                                                    </div>
+                                                                </td>
+                                                            <% } %>
+                                                            <% /* IMDb рейтинг (1-100) и число голосов */ %>
+                                                            <% if (movie.imdb_vote) { %>
+                                                                <td>
+                                                                    <div style="color: #e48e34"><%- page.l.imdb %></div>
+                                                                    <div>
+                                                                        <strong><%- movie.imdb_rating / 10 %></strong>
+                                                                        <small style="color:#666">(<%- movie.imdb_vote %> <%- page.l.votes %>)</small>
+                                                                    </div>
+                                                                </td>
+                                                            <% } %>
+                                                            <% /* КиноПоиск рейтинг (1-100) и число голосов */ %>
+                                                            <% if (movie.kp_vote) { %>
+                                                                <td>
+                                                                    <div style="color: #e4ce2e"><%- page.l.kp %></div>
+                                                                    <div>
+                                                                        <strong><%- movie.kp_rating / 10 %></strong>
+                                                                        <small style="color:#666">(<%- movie.kp_vote %> <%- page.l.votes %>)</small>
+                                                                    </div>
+                                                                </td>
+                                                            <% } %>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
                                         </article>
                                     </div>

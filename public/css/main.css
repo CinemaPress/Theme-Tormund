@@ -35645,10 +35645,10 @@ scroll-wrapper .next-ep-holder .next-ep-wrapper .title-quaternary {
     right: 0;
     top: 0;
     width: 110%;
-    background: -moz-linear-gradient(top, rgba(20, 22, 29, .97) 0%, #14161d 100%);
-    background: -webkit-linear-gradient(top, rgba(20, 22, 29, .97) 0%, #14161d 100%);
-    background: linear-gradient(to bottom, rgba(20, 22, 29, .97) 0%, #14161d 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0014161d', endColorstr=$black, GradientType=0)
+    background: -moz-linear-gradient(top, rgba(20, 22, 29, .87) 0%, #14161d 100%);
+    background: -webkit-linear-gradient(top, rgba(20, 22, 29, .87) 0%, #14161d 100%);
+    background: linear-gradient(to bottom, rgba(20, 22, 29, .87) 0%, #14161d 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0014161d', endColorstr='#14161d', GradientType=0)
 }
 
 #content .inner-content .bg-cover-bg img {
@@ -37549,7 +37549,7 @@ scroll-wrapper .next-ep-holder .next-ep-wrapper .title-quaternary {
 }
 
 .cat-tags {
-    margin: 0 auto 20px;
+    margin: 0 auto;
     text-align: center
 }
 
@@ -40888,3 +40888,5 @@ scroll-wrapper .next-ep-holder .next-ep-wrapper .title-quaternary {
         font-size: 15px
     }
 }
+
+#tv-series-desc{text-align: justify}
