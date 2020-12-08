@@ -135,17 +135,36 @@
 </div>
 
 <script>
-  window.addEventListener('DOMContentLoaded', function(e) {
+  window.addEventListener('DOMContentLoaded', function() {
     var dataCinemapressSrc = document.querySelectorAll('[data-cinemapress-src]');
-    if (!dataCinemapressSrc) return;
-    dataCinemapressSrc.forEach(function(cinemapressSrc) {
-      cinemapressSrc.src = cinemapressSrc.dataset.cinemapressSrc;
-    });
+    if (dataCinemapressSrc) {
+      dataCinemapressSrc.forEach(function(cinemapressSrc) {
+        if (cinemapressSrc.complete) {
+          cinemapressSetImage(cinemapressSrc, 'cinemapressSrc');
+        } else {
+          cinemapressSrc.addEventListener('load', function() {
+            cinemapressSetImage(cinemapressSrc, 'cinemapressSrc');
+          }, { once: true });
+        }
+      });
+    }
     var dataCinemapressBgSrc = document.querySelectorAll('[data-cinemapress-bg-src]');
-    if (!dataCinemapressBgSrc) return;
-    dataCinemapressBgSrc.forEach(function(cinemapressBgSrc) {
-      cinemapressBgSrc.style.backgroundImage = 'url("' + cinemapressBgSrc.dataset.cinemapressBgSrc + '")';
-    });
+    if (dataCinemapressBgSrc) {
+      dataCinemapressBgSrc.forEach(function(cinemapressBgSrc) {
+        cinemapressSetImage(cinemapressBgSrc, 'cinemapressBgSrc');
+      });
+    }
+    function cinemapressSetImage(elem, name) {
+      var img = new Image();
+      img.src = elem.dataset[name];
+      img.onload = function() {
+        if (name === 'cinemapressBgSrc') {
+          elem.style.backgroundImage = 'url("' + elem.dataset[name] + '")';
+        } else {
+          elem.src = elem.dataset[name];
+        }
+      }
+    }
   });
 </script>
 
