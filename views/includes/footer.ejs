@@ -135,37 +135,46 @@
 </div>
 
 <script>
-  window.addEventListener('DOMContentLoaded', function() {
-    var dataCinemapressSrc = document.querySelectorAll('[data-cinemapress-src]');
-    if (dataCinemapressSrc) {
-      dataCinemapressSrc.forEach(function(cinemapressSrc) {
-        if (cinemapressSrc.complete) {
-          cinemapressSetImage(cinemapressSrc, 'cinemapressSrc');
-        } else {
-          cinemapressSrc.addEventListener('load', function() {
-            cinemapressSetImage(cinemapressSrc, 'cinemapressSrc');
-          }, { once: true });
+  (function() {
+    var dataAllSrc = document.querySelectorAll('[data-cinemapress-src],[data-cinemapress-bg-src]');
+    var dataAllSrcCount = (dataAllSrc && dataAllSrc.length) || 0;
+    var dataAllSrcCountComp = 0;
+    var fSrc = {
+      'dataCountImage': function() {
+        dataAllSrcCountComp = dataAllSrcCountComp+1;
+        if (dataAllSrcCount && dataAllSrcCountComp >= dataAllSrcCount) {
+          dataAllSrcCount = 0;
+          setTimeout(function() {
+            fSrc['checkLoad'](dataAllSrc, 'dataSetImage');
+          }, 1);
         }
-      });
-    }
-    var dataCinemapressBgSrc = document.querySelectorAll('[data-cinemapress-bg-src]');
-    if (dataCinemapressBgSrc) {
-      dataCinemapressBgSrc.forEach(function(cinemapressBgSrc) {
-        cinemapressSetImage(cinemapressBgSrc, 'cinemapressBgSrc');
-      });
-    }
-    function cinemapressSetImage(elem, name) {
-      var img = new Image();
-      img.src = elem.dataset[name];
-      img.onload = function() {
-        if (name === 'cinemapressBgSrc') {
-          elem.style.backgroundImage = 'url("' + elem.dataset[name] + '")';
-        } else {
-          elem.src = elem.dataset[name];
+      },
+      'dataSetImage': function(el) {
+        var src = el.dataset.cinemapressSrc;
+        var bgSrc = el.dataset.cinemapressBgSrc;
+        if (!src && !bgSrc) return;
+        var img = new Image();
+        img.src = src ? src : bgSrc;
+        img.onload = function() {
+          if (src) { el.src = src; }
+          else { el.style.backgroundImage = 'url("' + bgSrc + '")';}
         }
+      },
+      'checkLoad': function(els, fn) {
+        if (!els) return;
+        els.forEach(function(src) {
+          if (typeof src.complete === 'undefined' || src.complete) {
+            fSrc[fn](src);
+          } else {
+            src.addEventListener('load', function() {
+              fSrc[fn](this);
+            }, { once: true });
+          }
+        });
       }
     }
-  });
+    fSrc['checkLoad'](dataAllSrc, 'dataCountImage');
+  })();
 </script>
 
 <script src="/themes/<%- page.theme %>/public/js/jquery-3.3.1.min.js?v=<%- page.ver %>"></script>
