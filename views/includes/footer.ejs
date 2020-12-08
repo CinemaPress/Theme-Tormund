@@ -133,6 +133,22 @@
         </div>
     </div>
 </div>
+
+<script>
+  window.addEventListener('DOMContentLoaded', function(e) {
+    var dataCinemapressSrc = document.querySelectorAll('[data-cinemapress-src]');
+    if (!dataCinemapressSrc) return;
+    dataCinemapressSrc.forEach(function(cinemapressSrc) {
+      cinemapressSrc.src = cinemapressSrc.dataset.cinemapressSrc;
+    });
+    var dataCinemapressBgSrc = document.querySelectorAll('[data-cinemapress-bg-src]');
+    if (!dataCinemapressBgSrc) return;
+    dataCinemapressBgSrc.forEach(function(cinemapressBgSrc) {
+      cinemapressBgSrc.style.backgroundImage = 'url("' + cinemapressBgSrc.dataset.cinemapressBgSrc + '")';
+    });
+  });
+</script>
+
 <script src="/themes/<%- page.theme %>/public/js/jquery-3.3.1.min.js?v=<%- page.ver %>"></script>
 <script src="/themes/<%- page.theme %>/public/js/jquery-ui.min.js?v=<%- page.ver %>"></script>
 <script src="/themes/<%- page.theme %>/public/js/semantic.min.js?v=<%- page.ver %>"></script>

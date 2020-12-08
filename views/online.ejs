@@ -27,7 +27,7 @@
                 <div id="router-view">
                     <% if (movie.picture) { %>
                         <div class="bg-cover-bg">
-                            <img src="<%- movie.picture %>" alt="BG">
+                            <img src="<%- movie.picture_min %>" data-cinemapress-src="<%- movie.picture %>" alt="BG">
                         </div>
                     <% } %>
                     <div class="bg-cover-faker">
@@ -128,7 +128,7 @@
                             <div class="ui items">
                                 <div class="item" id="series-profile-wrapper">
                                     <a class="ui image" id="series-profile-image-wrapper">
-                                        <img class="series-profile-thumb" src="<%- movie.poster %>"
+                                        <img class="series-profile-thumb" src="<%- movie.poster_min %>" data-cinemapress-src="<%- movie.poster %>"
                                              alt="<%= movie.title %>" data-cinemapress-poster="<%- movie.poster %>">
                                     </a>
                                     <div class="content" id="series-profile-content-wrapper">
