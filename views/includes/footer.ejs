@@ -138,15 +138,21 @@
   (function() {
     var dataAllSrc = document.querySelectorAll('[data-cinemapress-src],[data-cinemapress-bg-src]');
     var dataAllSrcCount = (dataAllSrc && dataAllSrc.length) || 0;
+    if (!dataAllSrcCount) return;
     var dataAllSrcCountComp = 0;
     var fSrc = {
       'dataCountImage': function() {
         dataAllSrcCountComp = dataAllSrcCountComp+1;
         if (dataAllSrcCount && dataAllSrcCountComp >= dataAllSrcCount) {
           dataAllSrcCount = 0;
-          setTimeout(function() {
-            fSrc['checkLoad'](dataAllSrc, 'dataSetImage');
-          }, 1);
+          var st;
+          window.addEventListener('load', function() {
+            clearTimeout(st);
+            fSrc['checkLoad']('dataSetImage');
+          });
+          st = setTimeout(function() {
+            fSrc['checkLoad']('dataSetImage');
+          }, 5000);
         }
       },
       'dataSetImage': function(el) {
@@ -160,9 +166,9 @@
           else { el.style.backgroundImage = 'url("' + bgSrc + '")';}
         }
       },
-      'checkLoad': function(els, fn) {
-        if (!els) return;
-        els.forEach(function(src) {
+      'checkLoad': function(fn) {
+        if (!dataAllSrc) return;
+        dataAllSrc.forEach(function(src) {
           if (typeof src.complete === 'undefined' || src.complete) {
             fSrc[fn](src);
           } else {
@@ -173,7 +179,7 @@
         });
       }
     }
-    fSrc['checkLoad'](dataAllSrc, 'dataCountImage');
+    fSrc['checkLoad']('dataCountImage');
   })();
 </script>
 
