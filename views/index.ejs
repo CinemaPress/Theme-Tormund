@@ -50,7 +50,7 @@
                                                                 <date class="today"><%- movie.year %></date>
                                                             </span>
                                                             <figure class="poster-img">
-                                                                <img src="<%- movie.poster_min %>" data-cinemapress-src="<%- movie.poster %>" alt="<%- movie.title %>">
+                                                                <img src="<%- movie.poster_min %>" class="lazy" data-src="<%- movie.poster %>" alt="<%- movie.title %>">
                                                             </figure>
                                                             <h2 class="truncate"><%- movie.title %></h2>
                                                             <p class="poster-meta truncate">
@@ -123,7 +123,7 @@
                                                                 <date class="today"><%- movie.year %></date>
                                                             </span>
                                                             <figure class="poster-img">
-                                                                <img src="<%- movie.poster_min %>" data-cinemapress-src="<%- movie.poster %>" alt="<%- movie.title %>">
+                                                                <img src="<%- movie.poster_min %>" class="lazy" data-src="<%- movie.poster %>" alt="<%- movie.title %>">
                                                             </figure>
                                                             <h2 class="truncate"><%- movie.title %></h2>
                                                             <p class="poster-meta truncate">
@@ -132,7 +132,7 @@
                                                         </div>
                                                         <img class="lazy-wide"
                                                              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAQAAACRI2S5AAAAEElEQVR42mNkIAAYRxWAAQAG9gAKqv6+AwAAAABJRU5ErkJggg=="
-                                                             alt="<%- movie.title %>" data-src="<%- movie.picture %>">
+                                                             alt="<%= movie.title %>" data-src="<%- movie.picture %>">
                                                     </a>
                                                 </div>
                                             </div>
@@ -329,7 +329,7 @@
                                                                         </div>
                                                                         <img class="lazy-wide"
                                                                              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAQAAACRI2S5AAAAEElEQVR42mNkIAAYRxWAAQAG9gAKqv6+AwAAAABJRU5ErkJggg=="
-                                                                             alt="Breaking Bad"
+                                                                             alt="Avatar"
                                                                              data-src="<%- comment.avatar %>">
                                                                     </a>
                                                                 </div>

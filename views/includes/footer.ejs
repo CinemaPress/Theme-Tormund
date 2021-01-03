@@ -134,55 +134,6 @@
     </div>
 </div>
 
-<script>
-  (function() {
-    var dataAllSrc = document.querySelectorAll('[data-cinemapress-src],[data-cinemapress-bg-src]');
-    var dataAllSrcCount = (dataAllSrc && dataAllSrc.length) || 0;
-    if (!dataAllSrcCount) return;
-    var dataAllSrcCountComp = 0;
-    var fSrc = {
-      'dataCountImage': function() {
-        dataAllSrcCountComp = dataAllSrcCountComp+1;
-        if (dataAllSrcCount && dataAllSrcCountComp >= dataAllSrcCount) {
-          dataAllSrcCount = 0;
-          var st;
-          window.addEventListener('load', function() {
-            clearTimeout(st);
-            fSrc['checkLoad']('dataSetImage');
-          });
-          st = setTimeout(function() {
-            fSrc['checkLoad']('dataSetImage');
-          }, 5000);
-        }
-      },
-      'dataSetImage': function(el) {
-        var src = el.dataset.cinemapressSrc;
-        var bgSrc = el.dataset.cinemapressBgSrc;
-        if (!src && !bgSrc) return;
-        var img = new Image();
-        img.src = src ? src : bgSrc;
-        img.onload = function() {
-          if (src) { el.src = src; }
-          else { el.style.backgroundImage = 'url("' + bgSrc + '")';}
-        }
-      },
-      'checkLoad': function(fn) {
-        if (!dataAllSrc) return;
-        dataAllSrc.forEach(function(src) {
-          if (typeof src.complete === 'undefined' || src.complete) {
-            fSrc[fn](src);
-          } else {
-            src.addEventListener('load', function() {
-              fSrc[fn](this);
-            }, { once: true });
-          }
-        });
-      }
-    }
-    fSrc['checkLoad']('dataCountImage');
-  })();
-</script>
-
 <script src="/themes/<%- page.theme %>/public/js/jquery-3.3.1.min.js?v=<%- page.ver %>"></script>
 <script src="/themes/<%- page.theme %>/public/js/jquery-ui.min.js?v=<%- page.ver %>"></script>
 <script src="/themes/<%- page.theme %>/public/js/semantic.min.js?v=<%- page.ver %>"></script>
