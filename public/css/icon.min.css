@@ -1,4 +1,5 @@
 @font-face {
+    font-display:swap;
     font-family: Icons;
     src: url(../fonts/icons.eot);
     src: url(../fonts/icons.eot#iefix) format('embedded-opentype'), url(../fonts/icons.woff2) format('woff2'), url(../fonts/icons.woff) format('woff'), url(../fonts/icons.ttf) format('truetype'), url(../fonts/icons.svg#icons) format('svg');
@@ -5145,17 +5146,6 @@ i.icon.youtube.play:before {
     content: "\f167"
 }
 
-@font-face {
-    font-family: outline-icons;
-    src: url(../fonts/outline-icons.eot);
-    src: url(../fonts/outline-icons.eot#iefix) format('embedded-opentype'), url(../fonts/outline-icons.woff2) format('woff2'), url(../fonts/outline-icons.woff) format('woff'), url(../fonts/outline-icons.ttf) format('truetype'), url(../fonts/outline-icons.svg#icons) format('svg');
-    font-style: normal;
-    font-weight: 400;
-    font-variant: normal;
-    text-decoration: inherit;
-    text-transform: none
-}
-
 i.icon.outline {
     font-family: outline-icons
 }
@@ -5639,17 +5629,6 @@ i.icon.heart.empty:before {
 
 i.icon.star.empty:before {
     content: "\f089"
-}
-
-@font-face {
-    font-family: brand-icons;
-    src: url(../fonts/brand-icons.eot);
-    src: url(../fonts/brand-icons.eot#iefix) format('embedded-opentype'), url(../fonts/brand-icons.woff2) format('woff2'), url(../fonts/brand-icons.woff) format('woff'), url(../fonts/brand-icons.ttf) format('truetype'), url(../fonts/brand-icons.svg#icons) format('svg');
-    font-style: normal;
-    font-weight: 400;
-    font-variant: normal;
-    text-decoration: inherit;
-    text-transform: none
 }
 
 i.icon.\35 00px,
