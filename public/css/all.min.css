@@ -1029,3 +1029,5 @@ span.cinemapress-comment-form-bb-search, .cinemapress-comment-search {
 .recentlyViewedBlock img:hover{
     opacity:.6
 }
+
+a.cinemapress-tooltips{position:relative;display:inline}a.cinemapress-tooltips span{position:absolute;color:#fff;height:200px;line-height:64px;text-align:center;visibility:hidden;border-radius:6px}a.cinemapress-tooltips span img{height:200px;border-radius:10px}a.cinemapress-tooltips span:after{content:'';position:absolute;top:100%;left:50%;margin-left:-8px;width:0;height:0}a:hover.cinemapress-tooltips span{visibility:visible !important;opacity:.95;bottom:30px;left:0;right:0;text-align:center;z-index:100001}
