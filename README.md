@@ -13,7 +13,7 @@
 
 ## Installation via terminal
 ```
-~# bash <(wget cinemapress.sh -qO-)
+~# bash <(wget git.io/JGKNq -qO-)
 ```
 
 ## Как установить?
@@ -23,5 +23,5 @@
 
 ## Установка через терминал
 ```
-~# bash <(wget cinemapress.sh -qO-)
+~# bash <(wget git.io/JGKNq -qO-)
 ```
