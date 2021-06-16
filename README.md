@@ -1,10 +1,10 @@
 # Theme «tormund»
 
-![Theme «tormund» for CinemaPress](https://raw.githubusercontent.com/CinemaPress/Theme-Tormund/master/screenshot.png "Theme «tormund» for CinemaPress")
+![Theme «tormund» for CinemaPress](https://raw.githubusercontent.com/CinemaPress/Theme-Tormund/master/screenshot.png)
 
 :art: Theme «tormund» for CinemaPress
 
-- [Tormund.CinemaPress.io](http://Tormund.CinemaPress.io/)
+- `«tormund»`
 
 ## How to install?
 1. Download [GitHub](https://github.com/CinemaPress/Theme-Tormund/archive/master.zip) or [GitLab](https://gitlab.com/CinemaPress/Theme-Tormund/repository/archive.zip) or [BitBucket](https://bitbucket.org/cinemapress/theme-tormund/get/master.zip)
